@@ -1,13 +1,13 @@
 [user]
-	email = mark.lee@pinkoi.com
-	name = marklee
+    email = mark.lee@pinkoi.com
+    name = marklee
 [alias]
     br = branch
-	co = checkout
+    co = checkout
     rc = recent
 [merge]
     tool = vimdiff
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
-	ui = true
+    ui = true

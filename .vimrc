@@ -49,7 +49,7 @@
 
     " autocompletion
     " Plugin 'Valloric/YouCompleteMe'
-    Plugin 'davidhalter/jedi-vim'
+    " Plugin 'davidhalter/jedi-vim'
 
     " status bar
     Plugin 'vim-airline/vim-airline'

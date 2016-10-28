@@ -29,7 +29,7 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -51,7 +51,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pip geeknote percol sudo)
+plugins=(git pip geeknote)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,6 +94,7 @@ alias l='ls -a'
 alias ll='ls -al'
 alias vif='vim $(fzf -m)'
 alias f=fzf
+alias zp='z p'
 alias -s py=vi
 alias -s mako=vi
 alias -s txt=vi
@@ -113,8 +114,6 @@ export TERM=xterm-256color
 # Pinkoi dev settings
 export DJANGO_SETTINGS_MODULE='pinkoi.settings'
 export PYTHONPATH="/home/${USER}/dev/pinkoi${PYTHONPATH+:}$PYTHONPATH"
-
-source ~/dev/venv/bin/activate
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -s "/home/marklee/.scm_breeze/scm_breeze.sh" ] && source "/home/marklee/.scm_breeze/scm_breeze.sh"
