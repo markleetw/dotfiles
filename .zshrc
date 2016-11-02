@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/marklee/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -85,6 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
+# CUSTOM SETTINGS
 DEFAULT_USER='marklee'
 
 # alias
@@ -95,15 +96,12 @@ alias ll='ls -al'
 alias vif='vim $(fzf -m)'
 alias f=fzf
 alias zp='z p'
-alias -s py=vi
-alias -s mako=vi
-alias -s txt=vi
 
-# tools
-export TOOL_PATH=/home/${USER}/dev/my_tools/
+# my_tools
+export TOOL_PATH=$HOME/dev/my_tools
 PATH=$PATH:$TOOL_PATH/node_modules/.bin/
 . $TOOL_PATH/z/z.sh
-eval `dircolors /home/${USER}/.dircolors`
+eval `dircolors $HOME/.dircolors`
 
 # ignore pyc extension files in autocompletion
 FIGNORE=.pyc
@@ -113,7 +111,8 @@ export TERM=xterm-256color
 
 # Pinkoi dev settings
 export DJANGO_SETTINGS_MODULE='pinkoi.settings'
-export PYTHONPATH="/home/${USER}/dev/pinkoi${PYTHONPATH+:}$PYTHONPATH"
+export PYTHONPATH="$HOME/dev/pinkoi${PYTHONPATH+:}$PYTHONPATH"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -s "/home/marklee/.scm_breeze/scm_breeze.sh" ] && source "/home/marklee/.scm_breeze/scm_breeze.sh"
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+

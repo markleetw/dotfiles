@@ -75,7 +75,7 @@
 
     " fzf
     Plugin 'junegunn/fzf'
-        set rtp+=~/.fzf
+        set rtp+=$HOME/.fzf
 
     " highlight html tag
     Plugin 'gregsexton/MatchTag'
