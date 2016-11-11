@@ -28,15 +28,15 @@
 
 " Run settings
     " <F5> Run Python
-    map <F5> :w<cr>:!python %<cr>
+    " map <F5> :w<cr>:!python %<cr>
 
     " <F5> Run Shell
-    map <F5> :call CompileRunSH()<CR>
-    func! CompileRunSH()
-    exec "w"
-    exec "!chmod a+x %"
-    exec "!./%"
-    endfunc
+    " map <F5> :call CompileRunSH()<CR>
+    " func! CompileRunSH()
+    " exec "w"
+    " exec "!chmod a+x %"
+    " exec "!./%"
+    " endfunc
 
 
 " Plugins
@@ -45,11 +45,12 @@
 
     " directory explorer
     Plugin 'scrooloose/nerdtree'
-        nnoremap <silent> <F4> :NERDTree<CR>
+        map <Leader>1  :NERDTreeToggle <CR>
+        let g:NERDTreeWinSize = 40
 
     " autocompletion
     " Plugin 'Valloric/YouCompleteMe'
-    " Plugin 'davidhalter/jedi-vim'
+    Plugin 'davidhalter/jedi-vim'
 
     " status bar
     Plugin 'vim-airline/vim-airline'
@@ -74,8 +75,8 @@
         let g:solarized_termtrans = 1
 
     " fzf
-    Plugin 'junegunn/fzf'
-        set rtp+=$HOME/.fzf
+    " Plugin 'junegunn/fzf'
+    "     set rtp+=$HOME/.fzf
 
     " highlight html tag
     Plugin 'gregsexton/MatchTag'
@@ -86,10 +87,30 @@
     " use % to travel Python's if, elif, etc.
     Plugin 'python_match.vim'
 
+    " Python highlight
+    " Plugin 'vim-scripts/python.vim'
+
+    " ctags and taglist
+    Plugin 'taglist.vim'
+        map <Leader>2  :Tlist <CR>
+        let Tlist_Ctags_Cmd='ctags'
+        let Tlist_Show_One_File=1               " only display the tags of current file
+        let Tlist_WinWidt =40                   " window width
+        let Tlist_Exit_OnlyWindow=1             " auto-exit when no other window
+        let Tlist_Use_Right_Window=1            " right
+        " let Tlist_Use_Left_Windo =1
+        " let Tlist_Auto_Open=1
+        set tags=tags;
+        set autochdir
+
+    " Ctrl-P to search file
+    Plugin 'kien/ctrlp.vim'
+
 " Python settings
     function PyHeader()
         if getfsize(@%) <= 0
-            execute "norm i#!/usr/bin/python\r# -*- coding: utf-8 -*-"
+            execute "norm i# -*- coding: utf-8 -*-"
         endif
     endfunction
+    au BufRead,BufNewFile *.py call PyHeader()
 

@@ -88,14 +88,14 @@ source $ZSH/oh-my-zsh.sh
 # CUSTOM SETTINGS
 DEFAULT_USER='marklee'
 
+
 # alias
 alias cls='clear'
 alias vi='vim'
 alias l='ls -a'
 alias ll='ls -al'
-alias vif='vim $(fzf -m)'
+alias vf='vim $(fzf -m)'
 alias f=fzf
-alias zp='z p'
 
 # my_tools
 export TOOL_PATH=$HOME/dev/my_tools
@@ -109,10 +109,9 @@ FIGNORE=.pyc
 # vim color issue when use from tmux
 export TERM=xterm-256color
 
-# Pinkoi dev settings
-export DJANGO_SETTINGS_MODULE='pinkoi.settings'
-export PYTHONPATH="$HOME/dev/pinkoi${PYTHONPATH+:}$PYTHONPATH"
-
+# Plugins
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
+# Pinkoi settings
+source $HOME/.pinkoirc
