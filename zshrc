@@ -51,7 +51,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pip geeknote)
+plugins=(git pip geeknote tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -91,21 +91,25 @@ DEFAULT_USER='marklee'
 
 # alias
 alias cls='clear'
-alias vi='vim'
-alias l='ls -a'
-alias ll='ls -al'
-alias vf='vim $(fzf -m)'
 alias f=fzf
+alias lal='ls -al'
+alias l='ls -a'
+alias tmuxt='tmuxinator'
+alias vi='vim'
+alias vf='vim $(fzf -m)'
+alias vif='vim $(fzf -m)'
 
 # my_tools
 export TOOL_PATH=$HOME/dev/my_tools
-PATH=$PATH:$TOOL_PATH/node_modules/.bin/
+PATH=$PATH:$TOOL_PATH/node_modules/.bin/:$HOME/.gem/ruby/2.2.0/bin
 . $TOOL_PATH/z/z.sh
 eval `dircolors $HOME/.dircolors`
 
 # ignore pyc extension files in autocompletion
 FIGNORE=.pyc
 
+# tmux related
+export EDITOR='vim'
 # vim color issue when use from tmux
 export TERM=xterm-256color
 
