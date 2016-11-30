@@ -2,8 +2,6 @@
     set fileencodings=utf8,big5,gbk,latin1
     set nocompatible               " be iMproved
     filetype off                   " required!
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
     set number
     set hlsearch
     set backspace=2
@@ -40,58 +38,60 @@
 
 
 " Plugins
+    call plug#begin('~/.vim/plugged')
+
     " plugin manager
-    Plugin 'gmarik/vundle'
+    " Plug 'gmarik/vundle'
 
     " directory explorer
-    Plugin 'scrooloose/nerdtree'
+    Plug 'scrooloose/nerdtree'
         map <Leader>1  :NERDTreeToggle <CR>
         let g:NERDTreeWinSize = 40
 
     " autocompletion
-    " Plugin 'Valloric/YouCompleteMe'
-    Plugin 'davidhalter/jedi-vim'
+    " Plug 'Valloric/YouCompleteMe'
+    Plug 'davidhalter/jedi-vim'
 
     " status bar
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
         set laststatus=2
         let g:airline#extensions#tabline#enabled = 1
         let g:airline_powerline_fonts = 1
         set noshowmode
 
     " syntax check
-    Plugin 'scrooloose/syntastic'
+    Plug 'scrooloose/syntastic'
         let g:syntastic_check_on_open = 1
 
     " mako syntax support
-    Plugin 'sophacles/vim-bundle-mako'
+    Plug 'sophacles/vim-bundle-mako'
 
     " solarized theme
-    Plugin 'altercation/vim-colors-solarized'
+    Plug 'altercation/vim-colors-solarized'
         syntax enable
         set background=dark
         colorscheme solarized
         let g:solarized_termtrans = 1
 
     " fzf
-    " Plugin 'junegunn/fzf'
+    " Plug 'junegunn/fzf'
     "     set rtp+=$HOME/.fzf
 
     " highlight html tag
-    Plugin 'gregsexton/MatchTag'
+    Plug 'gregsexton/MatchTag'
 
     " goto mached tag by %
     runtime macros/matchit.vim
 
     " use % to travel Python's if, elif, etc.
-    Plugin 'python_match.vim'
+    Plug 'python_match.vim'
 
     " Python highlight
-    " Plugin 'vim-scripts/python.vim'
+    " Plug 'vim-scripts/python.vim'
 
     " ctags and taglist
-    Plugin 'taglist.vim'
+    Plug 'taglist.vim'
         map <Leader>2  :Tlist <CR>
         let Tlist_Ctags_Cmd='ctags'
         let Tlist_Show_One_File=1               " only display the tags of current file
@@ -104,7 +104,9 @@
         set autochdir
 
     " Ctrl-P to search file
-    Plugin 'kien/ctrlp.vim'
+    Plug 'kien/ctrlp.vim'
+
+    call plug#end()
 
 " Python settings
     function PyHeader()
