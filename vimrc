@@ -5,6 +5,7 @@
     set number
     set hlsearch
     set backspace=2
+    set cursorline
 
 
 " Programming settings
@@ -24,33 +25,8 @@
     vnoremap // y/<C-R>"<CR>
 
 
-" Run settings
-    " <F5> Run Python
-    " map <F5> :w<cr>:!python %<cr>
-
-    " <F5> Run Shell
-    " map <F5> :call CompileRunSH()<CR>
-    " func! CompileRunSH()
-    " exec "w"
-    " exec "!chmod a+x %"
-    " exec "!./%"
-    " endfunc
-
-
 " Plugins
     call plug#begin('~/.vim/plugged')
-
-    " plugin manager
-    " Plug 'gmarik/vundle'
-
-    " directory explorer
-    Plug 'scrooloose/nerdtree'
-        map <Leader>1  :NERDTreeToggle <CR>
-        let g:NERDTreeWinSize = 40
-
-    " autocompletion
-    " Plug 'Valloric/YouCompleteMe'
-    Plug 'davidhalter/jedi-vim'
 
     " status bar
     Plug 'vim-airline/vim-airline'
@@ -62,7 +38,10 @@
 
     " syntax check
     Plug 'scrooloose/syntastic'
-        let g:syntastic_check_on_open = 1
+        nmap <Leader>r :SyntasticCheck <CR>
+        nmap <Leader>e :Errors <CR>
+        " let g:syntastic_check_on_open = 1
+        " let g:syntastic_check_on_wq = 0
 
     " mako syntax support
     Plug 'sophacles/vim-bundle-mako'
@@ -74,21 +53,11 @@
         colorscheme solarized
         let g:solarized_termtrans = 1
 
-    " fzf
-    " Plug 'junegunn/fzf'
-    "     set rtp+=$HOME/.fzf
-
     " highlight html tag
     Plug 'gregsexton/MatchTag'
 
-    " goto mached tag by %
-    runtime macros/matchit.vim
-
     " use % to travel Python's if, elif, etc.
     Plug 'python_match.vim'
-
-    " Python highlight
-    " Plug 'vim-scripts/python.vim'
 
     " ctags and taglist
     Plug 'taglist.vim'
@@ -106,9 +75,42 @@
     " Ctrl-P to search file
     Plug 'kien/ctrlp.vim'
 
+    " Highlight trailing whitespaces and can fix it
+    Plug 'bronson/vim-trailing-whitespace'
+        nmap <Leader>t :FixWhitespace <CR>
+
+    " Insert mode auto-completion for quotes, parens, brackets, etc.
+    Plug 'Raimondi/delimitMate'
+
+    " plugin manager
+    " Plug 'gmarik/vundle'
+
+    " directory explorer
+    " Plug 'scrooloose/nerdtree'
+        " map <Leader>1  :NERDTreeToggle <CR>
+        " let g:NERDTreeWinSize = 40
+
+    " autocompletion
+    " Plug 'Valloric/YouCompleteMe'
+    " Plug 'davidhalter/jedi-vim'
+
+    " fzf
+    " Plug 'junegunn/fzf'
+    "     set rtp+=$HOME/.fzf
+
+    " goto mached tag by %
+    " runtime macros/matchit.vim
+
+    " Python highlight
+    " Plug 'vim-scripts/python.vim'
+
+    " Display the indention levels
+    " Plug 'Yggdroot/indentLine'
+        " let g:indentLine_setColors = 0
+
     call plug#end()
 
-" Python settings
+" Python utf-8 header
     function PyHeader()
         if getfsize(@%) <= 0
             execute "norm i# -*- coding: utf-8 -*-"
@@ -116,3 +118,15 @@
     endfunction
     au BufRead,BufNewFile *.py call PyHeader()
 
+
+" Run settings
+    " <F5> Run Python
+    " map <F5> :w<cr>:!python %<cr>
+
+    " <F5> Run Shell
+    " map <F5> :call CompileRunSH()<CR>
+    " func! CompileRunSH()
+    " exec "w"
+    " exec "!chmod a+x %"
+    " exec "!./%"
+    " endfunc

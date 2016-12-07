@@ -91,10 +91,14 @@ DEFAULT_USER='marklee'
 
 # alias
 alias cls='clear'
-alias f=fzf
+alias f='fzf'
 alias lal='ls -al'
 alias l='ls -a'
-alias tmuxt='tmuxinator'
+alias py='python'
+alias tm='tmux'
+alias tma='tmux a'
+alias tmk='tmux kill-session'
+alias tmt='tmuxinator'
 alias vi='vim'
 alias vf='vim $(fzf -m)'
 alias vif='vim $(fzf -m)'
