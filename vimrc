@@ -62,10 +62,6 @@
     " Ctrl-P to search file
     Plug 'kien/ctrlp.vim'
 
-    " Highlight trailing whitespaces and can fix it
-    Plug 'bronson/vim-trailing-whitespace'
-        nmap <Leader>t :FixWhitespace <CR>
-
     " Insert mode auto-completion for quotes, parens, brackets, etc.
     Plug 'Raimondi/delimitMate'
 
@@ -112,6 +108,11 @@
         " let g:indentLine_setColors = 0
 
     call plug#end()
+
+
+" Remove trailing spaces when saving files
+autocmd BufWritePre * :%s/\s\+$//e
+
 
 " Python utf-8 header
     function PyHeader()
