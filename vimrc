@@ -15,10 +15,10 @@
     set smarttab
     set expandtab
     " Folding
-    set foldenable
-    set foldmethod=syntax
-    set foldcolumn=0
-    nnoremap @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')
+    " set foldenable
+    " set foldmethod=syntax
+    " set foldcolumn=0
+    " nnoremap @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')
 
 
 " Search selected text with //
