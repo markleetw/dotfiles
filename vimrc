@@ -41,7 +41,7 @@
         nmap <Leader>r :SyntasticCheck <CR>
         nmap <Leader>e :Errors <CR>
         " let g:syntastic_check_on_open = 1
-        " let g:syntastic_check_on_wq = 0
+        let g:syntastic_check_on_wq = 0
 
     " mako syntax support
     Plug 'sophacles/vim-bundle-mako'
@@ -59,19 +59,6 @@
     " use % to travel Python's if, elif, etc.
     Plug 'python_match.vim'
 
-    " ctags and taglist
-    Plug 'taglist.vim'
-        map <Leader>2  :Tlist <CR>
-        let Tlist_Ctags_Cmd='ctags'
-        let Tlist_Show_One_File=1               " only display the tags of current file
-        let Tlist_WinWidt =40                   " window width
-        let Tlist_Exit_OnlyWindow=1             " auto-exit when no other window
-        let Tlist_Use_Right_Window=1            " right
-        " let Tlist_Use_Left_Windo =1
-        " let Tlist_Auto_Open=1
-        set tags=tags;
-        set autochdir
-
     " Ctrl-P to search file
     Plug 'kien/ctrlp.vim'
 
@@ -82,6 +69,26 @@
     " Insert mode auto-completion for quotes, parens, brackets, etc.
     Plug 'Raimondi/delimitMate'
 
+    " autocompletion
+    " Plug 'Valloric/YouCompleteMe'
+    Plug 'davidhalter/jedi-vim'
+        let g:jedi#completions_command = "<C-N>"
+        let g:jedi#popup_on_dot = 0
+        let g:jedi#smart_auto_mappings = 0
+
+    " ctags and taglist
+    " Plug 'taglist.vim'
+        " map <Leader>2  :Tlist <CR>
+        " let Tlist_Ctags_Cmd='ctags'
+        " let Tlist_Show_One_File=1               " only display the tags of current file
+        " let Tlist_WinWidt =40                   " window width
+        " let Tlist_Exit_OnlyWindow=1             " auto-exit when no other window
+        " let Tlist_Use_Right_Window=1            " right
+        " let Tlist_Use_Left_Windo =1
+        " let Tlist_Auto_Open=1
+        " set tags=tags;
+        " set autochdir
+
     " plugin manager
     " Plug 'gmarik/vundle'
 
@@ -89,10 +96,6 @@
     " Plug 'scrooloose/nerdtree'
         " map <Leader>1  :NERDTreeToggle <CR>
         " let g:NERDTreeWinSize = 40
-
-    " autocompletion
-    " Plug 'Valloric/YouCompleteMe'
-    " Plug 'davidhalter/jedi-vim'
 
     " fzf
     " Plug 'junegunn/fzf'
