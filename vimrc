@@ -25,10 +25,27 @@
     vnoremap // y/<C-R>"<CR>
 
 
+" Set <Leader> to <Space>
+    let mapleader = "\<Space>"
+
+
+" Boost wq
+    nnoremap <Leader>w :w<CR>
+    nnoremap <Leader>q :q<CR>
+
+
+" Copy & paste to system clipboard with <Space>p and <Space>y:
+    " vmap <Leader>y "+y
+    " vmap <Leader>d "+d
+    " nmap <Leader>p "+p
+    " nmap <Leader>P "+P
+    " vmap <Leader>p "+p
+    " vmap <Leader>P "+P
+
 " Plugins
     call plug#begin('~/.vim/plugged')
 
-    " status bar
+    " Status bar
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
         set laststatus=2
@@ -36,9 +53,9 @@
         let g:airline_powerline_fonts = 1
         set noshowmode
 
-    " syntax check
+    " Syntax check
     Plug 'scrooloose/syntastic'
-        nmap <Leader>r :SyntasticCheck <CR>
+        nmap <Leader>c :SyntasticCheck <CR>
         nmap <Leader>e :Errors <CR>
         " let g:syntastic_check_on_open = 1
         let g:syntastic_check_on_wq = 0
@@ -46,17 +63,17 @@
     " mako syntax support
     Plug 'sophacles/vim-bundle-mako'
 
-    " solarized theme
+    " Solarized theme
     Plug 'altercation/vim-colors-solarized'
         syntax enable
         set background=dark
         colorscheme solarized
         let g:solarized_termtrans = 1
 
-    " highlight html tag
+    " Highlight HTML tags
     Plug 'gregsexton/MatchTag'
 
-    " use % to travel Python's if, elif, etc.
+    " Use % to travel Python's if, elif, etc.
     Plug 'python_match.vim'
 
     " Ctrl-P to search file
@@ -65,12 +82,20 @@
     " Insert mode auto-completion for quotes, parens, brackets, etc.
     Plug 'Raimondi/delimitMate'
 
-    " autocompletion
+    " Autocompletion
     " Plug 'Valloric/YouCompleteMe'
     Plug 'davidhalter/jedi-vim'
         let g:jedi#completions_command = "<C-N>"
         let g:jedi#popup_on_dot = 0
         let g:jedi#smart_auto_mappings = 0
+
+    " Track the engine.
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+
+    " Display tags in a window
+    Plug 'majutsushi/tagbar'
+        map <Leader>t  :TagbarToggle <CR>
 
     " ctags and taglist
     " Plug 'taglist.vim'
@@ -115,12 +140,12 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 
 " Python utf-8 header
-    function PyHeader()
-        if getfsize(@%) <= 0
-            execute "norm i# -*- coding: utf-8 -*-"
-        endif
-    endfunction
-    au BufRead,BufNewFile *.py call PyHeader()
+    " function PyHeader()
+    "     if getfsize(@%) <= 0
+    "         execute "norm i# -*- coding: utf-8 -*-"
+    "     endif
+    " endfunction
+    " au BufRead,BufNewFile *.py call PyHeader()
 
 
 " Run settings
