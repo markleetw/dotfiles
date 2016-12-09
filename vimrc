@@ -85,8 +85,8 @@
         let g:jedi#smart_auto_mappings = 0
 
     " Track the engine.
-    Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
+    " Plug 'SirVer/ultisnips'
+    " Plug 'honza/vim-snippets'
 
     " Display tags in a window
     Plug 'majutsushi/tagbar'
@@ -105,3 +105,11 @@
 
 " Remove trailing spaces when saving files
 autocmd BufWritePre * :%s/\s\+$//e
+
+" hand-made snippets
+autocmd FileType python
+\ noremap <Leader>ih i#!/usr/bin/env python<CR># -*- coding: utf-8 -*-<CR><CR><CR>|
+\ noremap <Leader>im iif __name__ == '__main__':<CR>
+
+autocmd FileType html
+\ noremap <Leader>ih i<!DOCTYPE html><CR><CR>
