@@ -23,6 +23,11 @@
     set expandtab
     set tabpagemax=100
 
+" Theme
+    syntax enable
+    set background=dark
+    colorscheme solarized
+
 " Set <Leader> to <Space>
     let mapleader = "\<Space>"
 
@@ -60,13 +65,6 @@
 
     " mako syntax support
     Plug 'sophacles/vim-bundle-mako'
-
-    " Solarized theme
-    Plug 'altercation/vim-colors-solarized'
-        syntax enable
-        set background=dark
-        colorscheme solarized
-        let g:solarized_termtrans = 1
 
     " Highlight HTML tags
     Plug 'gregsexton/MatchTag'

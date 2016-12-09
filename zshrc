@@ -29,7 +29,7 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -51,7 +51,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pip geeknote tmuxinator)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,6 +116,8 @@ FIGNORE=.pyc
 export EDITOR='vim'
 # vim color issue when use from tmux
 export TERM=xterm-256color
+# neovim conf
+export NVIMRC=$HOME/.config/nvim/init.vim
 
 # Plugins
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
