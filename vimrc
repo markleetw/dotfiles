@@ -1,12 +1,19 @@
 " Standard settings
-    set fileencodings=utf8,big5,gbk,latin1
     set nocompatible               " be iMproved
     filetype off                   " required!
     set number
     set hlsearch
     set backspace=2
     set cursorline
+    set nobackup
+    set noswapfile
 
+" Encoding
+    set encoding=utf-8
+    set fileencoding=utf-8
+    set fileencodings=utf-8
+    set bomb
+    set binary
 
 " Programming settings
     set tabstop=4
@@ -14,35 +21,24 @@
     set softtabstop=4
     set smarttab
     set expandtab
-    " Folding
-    " set foldenable
-    " set foldmethod=syntax
-    " set foldcolumn=0
-    " nnoremap @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')
-
-
-" Search selected text with //
-    vnoremap // y/<C-R>"<CR>
-
+    set tabpagemax=100
 
 " Set <Leader> to <Space>
     let mapleader = "\<Space>"
 
+" Search selected text with //
+    vnoremap // y/<C-R>"<CR>
 
 " Boost frequently used commands
     nnoremap <Leader>w :w<CR>
     nnoremap <Leader>q :q<CR>
     nnoremap <Leader>wq :wq<CR>
-    nnoremap <Leader>bw :bw<CR>
 
-
-" Copy & paste to system clipboard with <Space>p and <Space>y:
-    " vmap <Leader>y "+y
-    " vmap <Leader>d "+d
-    " nmap <Leader>p "+p
-    " nmap <Leader>P "+P
-    " vmap <Leader>p "+p
-    " vmap <Leader>P "+P
+" Buffers
+    nnoremap <Tab> :bn<CR>
+    nnoremap <S-Tab> :bp<CR>
+    nnoremap <silent> <S-t> :enew<CR>
+    nnoremap <silent> <S-q> :bw<CR>
 
 " Plugins
     call plug#begin('~/.vim/plugged')
@@ -85,7 +81,6 @@
     Plug 'Raimondi/delimitMate'
 
     " Autocompletion
-    " Plug 'Valloric/YouCompleteMe'
     Plug 'davidhalter/jedi-vim'
         let g:jedi#completions_command = "<C-N>"
         let g:jedi#popup_on_dot = 0
@@ -99,65 +94,16 @@
     Plug 'majutsushi/tagbar'
         map <Leader>t  :TagbarToggle <CR>
 
-    " ctags and taglist
-    " Plug 'taglist.vim'
-        " map <Leader>2  :Tlist <CR>
-        " let Tlist_Ctags_Cmd='ctags'
-        " let Tlist_Show_One_File=1               " only display the tags of current file
-        " let Tlist_WinWidt =40                   " window width
-        " let Tlist_Exit_OnlyWindow=1             " auto-exit when no other window
-        " let Tlist_Use_Right_Window=1            " right
-        " let Tlist_Use_Left_Windo =1
-        " let Tlist_Auto_Open=1
-        " set tags=tags;
-        " set autochdir
-
-    " plugin manager
-    " Plug 'gmarik/vundle'
+    " Display the indention levels
+    Plug 'Yggdroot/indentLine'
+        let g:indentLine_char = '¦'
 
     " directory explorer
     " Plug 'scrooloose/nerdtree'
         " map <Leader>1  :NERDTreeToggle <CR>
         " let g:NERDTreeWinSize = 40
 
-    " fzf
-    " Plug 'junegunn/fzf'
-    "     set rtp+=$HOME/.fzf
-
-    " goto mached tag by %
-    " runtime macros/matchit.vim
-
-    " Python highlight
-    " Plug 'vim-scripts/python.vim'
-
-    " Display the indention levels
-    " Plug 'Yggdroot/indentLine'
-        " let g:indentLine_setColors = 0
-
     call plug#end()
-
 
 " Remove trailing spaces when saving files
 autocmd BufWritePre * :%s/\s\+$//e
-
-
-" Python utf-8 header
-    " function PyHeader()
-    "     if getfsize(@%) <= 0
-    "         execute "norm i# -*- coding: utf-8 -*-"
-    "     endif
-    " endfunction
-    " au BufRead,BufNewFile *.py call PyHeader()
-
-
-" Run settings
-    " <F5> Run Python
-    " map <F5> :w<cr>:!python %<cr>
-
-    " <F5> Run Shell
-    " map <F5> :call CompileRunSH()<CR>
-    " func! CompileRunSH()
-    " exec "w"
-    " exec "!chmod a+x %"
-    " exec "!./%"
-    " endfunc
