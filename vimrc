@@ -1,49 +1,56 @@
-" Standard settings
-    set nocompatible               " be iMproved
-    filetype off                   " required!
-    set number
-    set hlsearch
-    set backspace=2
-    set cursorline
-    set nobackup
-    set noswapfile
+" General settings
+    set nocompatible                   " be iMproved
+    filetype off                       " required!
+    set number                         " display line numbers
+    set hlsearch                       " highlight search results
+    set backspace=2                    " enable backspace in insert mode
+    set cursorline                     " highlight the cursor line
+    set nobackup                       " won't save backup file anymore
+    set noswapfile                     " won't save swap file anymore
 
-" Encoding
-    set encoding=utf-8
-    set fileencoding=utf-8
-    set fileencodings=utf-8
-    set bomb
-    set binary
+" Encoding settings
+    set encoding=utf-8                 " for Vim execution
+    set fileencoding=utf-8             " for saving new files
+    set fileencodings=utf-8            " for opening files
 
 " Programming settings
-    set tabstop=4
-    set shiftwidth=4
-    set softtabstop=4
-    set smarttab
-    set expandtab
-    set tabpagemax=100
+    set expandtab                      " expand TABs to spaces
+    set tabstop=4                      " the width of a TAB
+    set shiftwidth=4                   " the width of a indent
+    set softtabstop=4                  " the numbers of columns for a TAB
+    set smarttab                       " uses shiftwidth instead of tabstop at start of lines
+    set tabpagemax=100                 " change the limit of tabs
 
-" Theme
+" Theme settings
     syntax enable
     set background=dark
     colorscheme solarized
 
-" Set <Leader> to <Space>
+" Keymap settings
+    " set <Leader> to <Space>
     let mapleader = "\<Space>"
 
-" Search selected text with //
-    vnoremap // y/<C-R>"<CR>
-
-" Boost frequently used commands
+    " frequently used commands
     nnoremap <Leader>w :w<CR>
     nnoremap <Leader>q :q<CR>
     nnoremap <Leader>wq :wq<CR>
 
-" Buffers
+    " buffer switch
     nnoremap <Tab> :bn<CR>
     nnoremap <S-Tab> :bp<CR>
+
+    " buffer create and quit
     nnoremap <silent> <S-t> :enew<CR>
     nnoremap <silent> <S-q> :bw<CR>
+
+    " search selected text with //
+    vnoremap // y/<C-R>"<CR>
+
+    " Make a simple search text object
+    " (just search something and hit 'cs' to replace and insert)
+    vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
+        \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
+    omap s :normal vs<CR>
 
 " Plugins
     call plug#begin('~/.vim/plugged')
@@ -58,10 +65,13 @@
 
     " Syntax check
     Plug 'scrooloose/syntastic'
-        nmap <Leader>c :SyntasticCheck <CR>
-        nmap <Leader>e :Errors <CR>
+        nnoremap <Leader>c :SyntasticCheck<CR>
+        nnoremap <Leader>e :SyntasticCheck<CR>:Errors<CR>
         " let g:syntastic_check_on_open = 1
         let g:syntastic_check_on_wq = 0
+        let g:syntastic_python_checkers=['flake8']
+        let g:syntastic_python_flake8_args = "--ignore=E203,E221,E501"
+        let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 
     " mako syntax support
     Plug 'sophacles/vim-bundle-mako'
@@ -69,11 +79,12 @@
     " Highlight HTML tags
     Plug 'gregsexton/MatchTag'
 
-    " Use % to travel Python's if, elif, etc.
-    Plug 'python_match.vim'
-
     " Ctrl-P to search file
     Plug 'kien/ctrlp.vim'
+        let g:ctrlp_map = '<Leader>o'
+        let g:ctrlp_cmd = 'CtrlP'
+        set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+        let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
     " Insert mode auto-completion for quotes, parens, brackets, etc.
     Plug 'Raimondi/delimitMate'
@@ -84,19 +95,25 @@
         let g:jedi#popup_on_dot = 0
         let g:jedi#smart_auto_mappings = 0
 
-    " Track the engine.
-    " Plug 'SirVer/ultisnips'
-    " Plug 'honza/vim-snippets'
-
     " Display tags in a window
     Plug 'majutsushi/tagbar'
-        map <Leader>t  :TagbarToggle <CR>
+        nnoremap <Leader>t  :TagbarToggle<CR>
 
     " Display the indention levels
     Plug 'Yggdroot/indentLine'
         let g:indentLine_char = '¦'
 
-    " directory explorer
+    " Python docstring generator
+    Plug 'marksylee/vim-pydocstring'
+
+    " Use % to travel Python's if, elif, etc.
+    " Plug 'python_match.vim'
+
+    " Track the engine.
+    " Plug 'SirVer/ultisnips'
+    " Plug 'honza/vim-snippets'
+
+    " Directory explorer
     " Plug 'scrooloose/nerdtree'
         " map <Leader>1  :NERDTreeToggle <CR>
         " let g:NERDTreeWinSize = 40
@@ -106,10 +123,10 @@
 " Remove trailing spaces when saving files
 autocmd BufWritePre * :%s/\s\+$//e
 
-" hand-made snippets
+" Hand-made snippets
 autocmd FileType python
-\ noremap <Leader>ih i#!/usr/bin/env python<CR># -*- coding: utf-8 -*-<CR><CR><CR>|
-\ noremap <Leader>im iif __name__ == '__main__':<CR>
+\ nnoremap <Leader>ih i#!/usr/bin/env python<CR># -*- coding: utf-8 -*-<CR><CR><CR>|
+\ nnoremap <Leader>im iif __name__ == '__main__':<CR>
 
 autocmd FileType html
-\ noremap <Leader>ih i<!DOCTYPE html><CR><CR>
+\ nnoremap <Leader>ih i<!DOCTYPE html><CR><CR>

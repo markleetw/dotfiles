@@ -51,7 +51,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git fancy-ctrl-z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,6 +102,10 @@ alias tmt='tmuxinator'
 alias vi='vim'
 alias vf='vim $(fzf -m)'
 alias vif='vim $(fzf -m)'
+alias vrc='vim $HOME/.vimrc'
+alias nvrc='vim $HOME/.config/nvim/init.vim'
+alias zrc='vim $HOME/.zshrc'
+alias prc='vim $HOME/.pinkoirc'
 
 # my_tools
 export TOOL_PATH=$HOME/dev/my_tools
@@ -119,7 +123,7 @@ export TERM=xterm-256color
 # neovim conf
 export NVIMRC=$HOME/.config/nvim/init.vim
 
-# Plugins
+# plugins
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
