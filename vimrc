@@ -39,7 +39,7 @@
     nnoremap <Tab> :bn<CR>
     nnoremap <S-Tab> :bp<CR>
 
-    " buffer create and quit
+    " buffer creation and exit
     nnoremap <silent> <S-t> :enew<CR>
     nnoremap <silent> <S-q> :bw<CR>
 

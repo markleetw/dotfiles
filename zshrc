@@ -84,10 +84,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
-# CUSTOM SETTINGS
-DEFAULT_USER='marklee'
-
+DEFAULT_USER=marklee
 
 # alias
 alias cls='clear'
