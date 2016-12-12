@@ -4,7 +4,6 @@
 [alias]
     br = branch
     co = checkout
-    rc = recent
 [merge]
     tool = vimdiff
 [diff]
