@@ -64,7 +64,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+export EDITOR='vim'
 # else
 #   export EDITOR='mvim'
 # fi
@@ -104,28 +104,25 @@ alias nvrc='vim $HOME/.config/nvim/init.vim'
 alias zrc='vim $HOME/.zshrc'
 alias prc='vim $HOME/.pinkoirc'
 
-# my_tools
-export TOOL_PATH=$HOME/dev/my_tools
-PATH=$PATH:$TOOL_PATH/node_modules/.bin/:$HOME/.gem/ruby/2.2.0/bin
-. $TOOL_PATH/z/z.sh
-
-if [ "$(uname)" != "Darwin" ]; then
-    eval `dircolors $HOME/.dircolors`
-fi
-
 # ignore pyc extension files in autocompletion
 FIGNORE=.pyc
 
-# tmux related
-export EDITOR='vim'
 # vim color issue when use from tmux
 export TERM=xterm-256color
-# neovim conf
-export NVIMRC=$HOME/.config/nvim/init.vim
 
-# plugins
+# add tools path into PATH
+export TOOL_PATH=$HOME/dev/my_tools
+PATH=$PATH:$TOOL_PATH/node_modules/.bin/:$HOME/.gem/ruby/2.2.0/bin
+
+# enable plugins
+. $TOOL_PATH/z/z.sh
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+
+# colorful directories (not working on Mac OS X)
+if [ "$(uname)" != "Darwin" ]; then
+    eval `dircolors $HOME/.dircolors`
+fi
 
 # Pinkoi settings
 source $HOME/.pinkoirc
