@@ -108,7 +108,10 @@ alias prc='vim $HOME/.pinkoirc'
 export TOOL_PATH=$HOME/dev/my_tools
 PATH=$PATH:$TOOL_PATH/node_modules/.bin/:$HOME/.gem/ruby/2.2.0/bin
 . $TOOL_PATH/z/z.sh
-eval `dircolors $HOME/.dircolors`
+
+if [ "$(uname)" != "Darwin" ]; then
+    eval `dircolors $HOME/.dircolors`
+fi
 
 # ignore pyc extension files in autocompletion
 FIGNORE=.pyc
