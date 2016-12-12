@@ -104,7 +104,7 @@
         let g:indentLine_char = '¦'
 
     " Python docstring generator
-    Plug 'marksylee/vim-pydocstring'
+    " Plug 'marksylee/vim-pydocstring'
 
     " Use % to travel Python's if, elif, etc.
     " Plug 'python_match.vim'
