@@ -86,7 +86,6 @@ export EDITOR='vim'
 
 DEFAULT_USER=marklee
 
-# alias
 alias cls='clear'
 alias f='fzf'
 alias lal='ls -al'
@@ -107,7 +106,7 @@ alias prc='vim $HOME/.pinkoirc'
 # ignore pyc extension files in autocompletion
 FIGNORE=.pyc
 
-# vim color issue when use from tmux
+# vim color issue when used from tmux
 export TERM=xterm-256color
 
 # add tools path into PATH
