@@ -97,6 +97,8 @@
 
     " Display tags in a window
     Plug 'majutsushi/tagbar'
+        let g:tagbar_autofocus = 1
+        let g:tagbar_silent = 1
         nnoremap <Leader>t  :TagbarToggle<CR>
 
     " Display the indention levels
