@@ -74,7 +74,9 @@
         let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 
     " mako syntax support
-    Plug 'sophacles/vim-bundle-mako'
+    " Plug 'sophacles/vim-bundle-mako'
+    Plug 'vim-scripts/mako.vim'
+        au BufRead,BufNewFile *.mako     set filetype=mako
 
     " Highlight HTML tags
     Plug 'gregsexton/MatchTag'
@@ -86,9 +88,6 @@
         set wildignore+=*/tmp/*,*.so,*.swp,*.zip
         let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-    " Insert mode auto-completion for quotes, parens, brackets, etc.
-    Plug 'Raimondi/delimitMate'
-
     " Autocompletion
     Plug 'davidhalter/jedi-vim'
         let g:jedi#completions_command = "<C-N>"
@@ -99,11 +98,15 @@
     Plug 'majutsushi/tagbar'
         let g:tagbar_autofocus = 1
         let g:tagbar_silent = 1
+        let g:tagbar_sort = 0
         nnoremap <Leader>t  :TagbarToggle<CR>
 
     " Display the indention levels
     Plug 'Yggdroot/indentLine'
         let g:indentLine_char = '¦'
+
+    " Insert mode auto-completion for quotes, parens, brackets, etc.
+    " Plug 'Raimondi/delimitMate'
 
     " Python docstring generator
     " Plug 'marksylee/vim-pydocstring'
