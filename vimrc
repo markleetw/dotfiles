@@ -70,7 +70,7 @@
         " let g:syntastic_check_on_open = 1
         let g:syntastic_check_on_wq = 0
         let g:syntastic_python_checkers=['flake8']
-        let g:syntastic_python_flake8_args = "--ignore=E203,E221,E501"
+        let g:syntastic_python_flake8_args = "--ignore=E203,E221,E251,E501"
         let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 
     " mako syntax support
