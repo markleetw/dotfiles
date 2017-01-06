@@ -113,6 +113,7 @@ PATH=$PATH:$TOOL_PATH/node_modules/.bin/:$HOME/.gem/ruby/2.2.0/bin
 . $TOOL_PATH/z/z.sh
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+export FZF_DEFAULT_OPTS="--color fg:-1,bg:-1,hl:33,fg+:254,bg+:235,hl+:33 --color info:136,prompt:136,pointer:230,marker:230,spinner:136 "
 
 # colorful directories (not working on Mac OS X)
 if [ "$(uname)" != "Darwin" ]; then
