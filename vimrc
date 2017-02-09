@@ -2,6 +2,7 @@
     set nocompatible                   " be iMproved
     filetype off                       " required!
     set number                         " display line numbers
+    nmap <C-N><C-N> :set invnumber<CR> " toggle line numbers with Ctrl+N twice
     set hlsearch                       " highlight search results
     set backspace=2                    " enable backspace in insert mode
     set cursorline                     " highlight the cursor line
@@ -66,7 +67,8 @@
     " Syntax check
     Plug 'scrooloose/syntastic'
         nnoremap <Leader>c :SyntasticCheck<CR>
-        nnoremap <Leader>e :SyntasticCheck<CR>:Errors<CR>
+        nnoremap <Leader>e :SyntasticCheck<CR>
+        nnoremap <Leader>ee :Errors<CR>
         " let g:syntastic_check_on_open = 1
         let g:syntastic_check_on_wq = 0
         let g:syntastic_python_checkers=['flake8']
@@ -74,9 +76,9 @@
         let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 
     " mako syntax support
-    " Plug 'sophacles/vim-bundle-mako'
-    Plug 'vim-scripts/mako.vim'
-        au BufRead,BufNewFile *.mako     set filetype=mako
+    Plug 'sophacles/vim-bundle-mako'
+    " Plug 'vim-scripts/mako.vim'
+        " au BufRead,BufNewFile *.mako     set filetype=mako
 
     " Highlight HTML tags
     Plug 'gregsexton/MatchTag'
