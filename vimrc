@@ -2,7 +2,6 @@
     set nocompatible                   " be iMproved
     filetype off                       " required!
     set number                         " display line numbers
-    nmap <C-N><C-N> :set invnumber<CR> " toggle line numbers with Ctrl+N twice
     set hlsearch                       " highlight search results
     set backspace=2                    " enable backspace in insert mode
     set cursorline                     " highlight the cursor line
@@ -21,6 +20,7 @@
     set softtabstop=4                  " the numbers of columns for a TAB
     set smarttab                       " uses shiftwidth instead of tabstop at start of lines
     set tabpagemax=100                 " change the limit of tabs
+    set mouse=a                        " enable mouse mode
 
 " Theme settings
     syntax enable
@@ -66,7 +66,6 @@
 
     " Syntax check
     Plug 'scrooloose/syntastic'
-        nnoremap <Leader>c :SyntasticCheck<CR>
         nnoremap <Leader>e :SyntasticCheck<CR>
         nnoremap <Leader>ee :Errors<CR>
         " let g:syntastic_check_on_open = 1
@@ -140,3 +139,27 @@ autocmd FileType python
 
 autocmd FileType html
 \ nnoremap <Leader>ih i<!DOCTYPE html><CR><CR>
+
+" Copy/Paste Mode for SSH to remote Vim
+nnoremap <Leader>c :call ToggleCopyMode()<CR>
+nnoremap <Leader>p :set invpaste paste?<CR>
+function ToggleCopyMode()
+    " Buffer-local variable
+    if !exists('b:copy_mode_is_enabled')
+        let b:copy_mode_is_enabled = 0
+    endif
+
+    if b:copy_mode_is_enabled
+        echom 'Disable Copy Mode'
+        set mouse=a
+        IndentLinesEnable
+        set number
+        let b:copy_mode_is_enabled = 0
+    else
+        echom 'Enable Copy Mode'
+        set mouse=
+        IndentLinesDisable
+        set number!
+        let b:copy_mode_is_enabled = 1
+    endif
+endfunction
