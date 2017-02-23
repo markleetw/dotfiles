@@ -86,10 +86,12 @@ export EDITOR='vim'
 
 DEFAULT_USER=marklee
 
+alias agl='ag --pager less'
 alias cls='clear'
 alias lal='ls -al'
 alias l='ls -a'
 alias py='python'
+alias ipy='ipython'
 alias tma='tmux a'
 alias tmk='tmux kill-session'
 alias vi='vim'

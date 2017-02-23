@@ -107,6 +107,9 @@
     Plug 'Yggdroot/indentLine'
         let g:indentLine_char = '¦'
 
+    " Easymotion
+    Plug 'easymotion/vim-easymotion'
+
     " Insert mode auto-completion for quotes, parens, brackets, etc.
     " Plug 'Raimondi/delimitMate'
 
