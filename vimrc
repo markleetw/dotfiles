@@ -1,6 +1,7 @@
 " General settings
     set nocompatible                   " be iMproved
     filetype off                       " required!
+    set relativenumber                 " display relative line numbers
     set number                         " display line numbers
     set hlsearch                       " highlight search results
     set backspace=2                    " enable backspace in insert mode
@@ -154,12 +155,14 @@ function ToggleCopyMode()
         set mouse=a
         IndentLinesEnable
         set number
+        set relativenumber
         let b:copy_mode_is_enabled = 0
     else
         echom 'Enable Copy Mode'
         set mouse=
         IndentLinesDisable
         set number!
+        set relativenumber!
         let b:copy_mode_is_enabled = 1
     endif
 endfunction
