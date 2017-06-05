@@ -106,6 +106,9 @@ alias prc='vim $HOME/.pinkoirc'
 # ignore pyc extension files in autocompletion
 FIGNORE=.pyc
 
+# vi-mode in zsh
+bindkey -v
+
 # vim color issue when used from tmux
 export TERM=xterm-256color
 
