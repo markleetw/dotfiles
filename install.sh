@@ -1,4 +1,3 @@
-ln -s $(pwd)/dircolors $HOME/.dircolors
 ln -s $(pwd)/gitconfig $HOME/.gitconfig
 ln -s $(pwd)/gitmessage $HOME/.gitmessage
 ln -s $(pwd)/pinkoirc $HOME/.pinkoirc
