@@ -12,7 +12,7 @@
 export DEFAULT_USER="marklee"
 
 # default editor
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # enable zsh menu selection completion
 zstyle ":completion:*" menu select
@@ -141,6 +141,7 @@ alias fzf-tmux='fzf-tmux -d 30%'
 alias gl='fzf-git-browse.sh'  # it's awesome!
 
 # Vim
+alias vim='nvim'
 alias vi='vim'
 alias vif='vim $(fzf-tmux -m)'
 

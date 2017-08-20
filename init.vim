@@ -1,52 +1,58 @@
-" Standard settings
-    set nocompatible               " be iMproved
-    filetype off                   " required!
-    set number
-    set hlsearch
-    set backspace=2
-    set cursorline
-    set nobackup
-    set noswapfile
+" General settings
+    set nocompatible                   " be iMproved
+    filetype off                       " required!
+    set relativenumber                 " display relative line numbers
+    set number                         " display line numbers
+    set hlsearch                       " highlight search results
+    set backspace=2                    " enable backspace in insert mode
+    set cursorline                     " highlight the cursor line
+    set nobackup                       " won't save backup file anymore
+    set noswapfile                     " won't save swap file anymore
 
-" Encoding
-    set encoding=utf-8
-    set fileencoding=utf-8
-    set fileencodings=utf-8
-    set bomb
-    set binary
+" Encoding settings
+    set encoding=utf-8                 " for Vim execution
+    set fileencoding=utf-8             " for saving new files
+    set fileencodings=utf-8            " for opening files
 
 " Programming settings
-    set tabstop=4
-    set shiftwidth=4
-    set softtabstop=4
-    set smarttab
-    set expandtab
-    set tabpagemax=100
+    set expandtab                      " expand TABs to spaces
+    set tabstop=4                      " the width of a TAB
+    set shiftwidth=4                   " the width of a indent
+    set softtabstop=4                  " the numbers of columns for a TAB
+    set smarttab                       " uses shiftwidth instead of tabstop at start of lines
+    set tabpagemax=100                 " change the limit of tabs
+    set mouse=a                        " enable mouse mode
 
-" Theme
+" Theme settings
+    " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
     syntax enable
     set background=dark
-    colorscheme solarized
 
-" Set <Leader> to <Space>
+" Keymap settings
+    " set <Leader> to <Space>
     let mapleader = "\<Space>"
 
-" Search selected text with //
-    vnoremap // y/<C-R>"<CR>
-
-" Boost frequently used commands
+    " frequently used commands
     nnoremap <Leader>w :w<CR>
     nnoremap <Leader>q :q<CR>
     nnoremap <Leader>wq :wq<CR>
 
-" Buffers
+    " buffer switch
     nnoremap <Tab> :bn<CR>
     nnoremap <S-Tab> :bp<CR>
+
+    " buffer creation and exit
     nnoremap <silent> <S-t> :enew<CR>
     nnoremap <silent> <S-q> :bw<CR>
 
+    " search selected text with //
+    vnoremap // y/<C-R>"<CR>
+
 " Plugins
-    call plug#begin('~/.vim/plugged')
+    call plug#begin('~/.local/share/nvim/plugged')
+
+    " Theme
+    Plug 'altercation/vim-colors-solarized'
 
     " Status bar
     Plug 'vim-airline/vim-airline'
@@ -56,16 +62,23 @@
         let g:airline_powerline_fonts = 1
         set noshowmode
 
-    " Syntax check
-    Plug 'neomake/neomake'
-        map <Leader>c :Neomake<CR>
-        let g:neomake_python_flake8_maker = {'args': ['--ignore=E501']}
-        let g:neomake_python_enabled_makers = ['flake8']
-        autocmd! BufWritePost * Neomake
-        hi NeomakeErrorSign ctermfg=203 guifg=#ff5f5f
-        hi NeomakeWarningSign ctermfg=209 guifg=#ffaf00
-        hi NeomakeInfoSign ctermfg=183 guifg=#dfafff
-        hi NeomakeMessageSign ctermfg=27 guifg=#0087ff
+    Plug 'w0rp/ale'
+    " let g:ale_sign_column_always = 1
+    let g:ale_linters = {
+    \    'python': ['flake8'],
+    \}
+    let g:airline#extensions#ale#enabled = 1
+    let g:ale_echo_msg_error_str = 'E'
+    let g:ale_echo_msg_warning_str = 'W'
+    let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+    nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+    nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+    " Toggle location list and quickfix list (for ale)
+    Plug 'milkypostman/vim-togglelist'
+    let g:toggle_list_no_mappings = 1
+    nmap <script> <silent> <leader>e :call ToggleLocationList()<CR>
+    " nmap <script> <silent> <leader>ee :call ToggleQuickfixList()<CR>
 
     " mako syntax support
     Plug 'sophacles/vim-bundle-mako'
@@ -73,32 +86,31 @@
     " Highlight HTML tags
     Plug 'gregsexton/MatchTag'
 
-    " Use % to travel Python's if, elif, etc.
-    Plug 'python_match.vim'
-
     " Ctrl-P to search file
     Plug 'kien/ctrlp.vim'
-
-    " Insert mode auto-completion for quotes, parens, brackets, etc.
-    Plug 'Raimondi/delimitMate'
-
-    " Track the engine.
-    Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
+        let g:ctrlp_map = '<Leader>o'
+        let g:ctrlp_cmd = 'CtrlP'
+        set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+        let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
     " Display tags in a window
     Plug 'majutsushi/tagbar'
-        map <Leader>t  :TagbarToggle <CR>
+        let g:tagbar_autofocus = 1
+        let g:tagbar_silent = 1
+        let g:tagbar_sort = 0
+        nnoremap <Leader>t  :TagbarToggle<CR>
 
     " Display the indention levels
     Plug 'Yggdroot/indentLine'
         let g:indentLine_char = '¦'
 
-    " Autocompletion
-    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-        " let g:deoplete#enable_at_startup = 1
+    " Easymotion
+    Plug 'easymotion/vim-easymotion'
 
     call plug#end()
 
 " Remove trailing spaces when saving files
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Enable theme
+colorscheme solarized
