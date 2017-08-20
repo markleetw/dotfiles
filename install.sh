@@ -13,4 +13,5 @@ ln -s $(pwd)/zshrc $HOME/.zshrc
 ln -s $(pwd)/pinkoirc $HOME/.pinkoirc
 
 ln -s $(pwd)/tmux.conf $HOME/.tmux.conf
+ln -s $(pwd)/tmux-powerline $HOME/.tmux-powerline
 ln -s $(pwd)/tmuxinator $HOME/.tmuxinator
