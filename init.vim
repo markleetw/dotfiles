@@ -22,6 +22,7 @@
     set smarttab                       " uses shiftwidth instead of tabstop at start of lines
     set tabpagemax=100                 " change the limit of tabs
     set mouse=a                        " enable mouse mode
+    " set clipboard=unnamed              " +y to copy text to clipboard
 
 " Theme settings
     " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -111,6 +112,36 @@
 
 " Remove trailing spaces when saving files
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Hand-made snippets
+autocmd FileType python
+\ nnoremap <Leader>ih i#!/usr/bin/env python<CR># -*- coding: utf-8 -*-<CR><CR><CR>|
+\ nnoremap <Leader>im iif __name__ == '__main__':<CR>
+
+" Copy/Paste Mode for SSH to remote Vim
+nnoremap <Leader>c :call ToggleCopyMode()<CR>
+function ToggleCopyMode()
+    " Buffer-local variable
+    if !exists('b:copy_mode_is_enabled')
+        let b:copy_mode_is_enabled = 0
+    endif
+
+    if b:copy_mode_is_enabled
+        echom 'Disable Copy Mode'
+        set mouse=a
+        IndentLinesEnable
+        set number
+        set relativenumber
+        let b:copy_mode_is_enabled = 0
+    else
+        echom 'Enable Copy Mode'
+        set mouse=
+        IndentLinesDisable
+        set number!
+        set relativenumber!
+        let b:copy_mode_is_enabled = 1
+    endif
+endfunction
 
 " Enable theme
 colorscheme solarized
