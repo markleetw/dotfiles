@@ -89,6 +89,7 @@ zplug "so-fancy/diff-so-fancy", as:command, use:"diff-so-fancy"
 # number shortcut
 zplug "ndbroadbent/scm_breeze", hook-build:"$ZPLUG_HOME/repos/ndbroadbent/scm_breeze/install.sh"
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+export scmb_wrapped_shell_commands="$scmb_wrapped_shell_commands nvim"
 
 # fuzzy Search
 zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf
