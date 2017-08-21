@@ -110,7 +110,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2, hook-load:"ZSH_HIGHLIGHT_STY
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions", hook-load:"ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=242"
 zplug "rupa/z", use:z.sh
-zplug "joel-porquet/zsh-dircolors-solarized", hook-load:"setupsolarized dircolors.256dark", if:"has dircolors"
+zplug "joel-porquet/zsh-dircolors-solarized", hook-load:"source $ZPLUG_HOME/repos/joel-porquet/zsh-dircolors-solarized/zsh-dircolors-solarized.zsh", if:"(( $+commands[dircolors] ))"
 
 
 # zplug check, install and load
@@ -129,6 +129,7 @@ zplug load  # --verbose
 # =====
 alias '?'='which'
 alias cls='clear'
+alias l='ll'
 
 # Python
 alias py='py2'
