@@ -84,7 +84,6 @@
 
     " mako syntax support
     Plug 'sophacles/vim-bundle-mako'
-        autocmd Filetype mako setlocal ts=4 sw=4 sts=0 expandtab
 
     " Highlight HTML tags
     Plug 'gregsexton/MatchTag'
@@ -165,3 +164,6 @@ endfunction
 
 " Enable theme
 colorscheme solarized
+
+" expand indent spaces in mako file
+autocmd Filetype mako setlocal ts=4 sw=4 sts=0 expandtab
