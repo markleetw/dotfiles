@@ -26,7 +26,6 @@
 " Theme settings
     syntax enable
     set background=dark
-    colorscheme solarized
 
 " Keymap settings
     " set <Leader> to <Space>
@@ -56,6 +55,9 @@
 
 " Plugins
     call plug#begin('~/.vim/plugged')
+
+    " Theme
+    Plug 'altercation/vim-colors-solarized'
 
     " Status bar
     Plug 'vim-airline/vim-airline'
@@ -166,3 +168,6 @@ function ToggleCopyMode()
         let b:copy_mode_is_enabled = 1
     endif
 endfunction
+
+" Enable theme
+colorscheme solarized
