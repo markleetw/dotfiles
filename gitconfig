@@ -1,28 +1,28 @@
 [user]
-	email = mark.lee@pinkoi.com
-	name = marklee
+    email = mark.lee@pinkoi.com
+    name = marklee
 
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 
 [commit]
-	template = ~/.gitmessage
+    template = ~/.gitmessage
 
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = diff-so-fancy | less --tabs=4 -RFX
 
 [color]
-	ui = true
+    ui = true
 
 [color "diff"]
-    meta = yellow blink         # metainformation
-	frag = cyan			        # hunk header
-	commit = 227 bold		    # commit headers
-	whitespace = red reverse    # highlighting whitespace errors
-	func = blue			        # function in hunk header
-	# new = green bold
-	# old = red bold
-	# plain = white		        # context text
+    meta = yellow blink        # metainformation
+    frag = cyan                # hunk header
+    commit = 227 bold          # commit headers
+    whitespace = red reverse   # highlighting whitespace errors
+    func = blue                # function in hunk header
+    # new = green bold
+    # old = red bold
+    # plain = white            # context text
