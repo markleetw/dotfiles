@@ -83,7 +83,7 @@
         " nmap <script> <silent> <leader>ee :call ToggleQuickfixList()<CR>
 
     " mako syntax support
-    Plug 'sophacles/vim-bundle-mako'
+    Plug 'marksylee/vim-bundle-mako'
 
     " Highlight HTML tags
     Plug 'gregsexton/MatchTag'
@@ -164,6 +164,3 @@ endfunction
 
 " Enable theme
 colorscheme solarized
-
-" expand indent spaces in mako file
-autocmd Filetype mako setlocal ts=4 sw=4 sts=0 expandtab
