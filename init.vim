@@ -64,26 +64,27 @@
         set noshowmode
 
     Plug 'w0rp/ale'
-    " let g:ale_sign_column_always = 1
-    let g:ale_linters = {
-    \    'python': ['flake8'],
-    \}
-    let g:airline#extensions#ale#enabled = 1
-    let g:ale_echo_msg_error_str = 'E'
-    let g:ale_echo_msg_warning_str = 'W'
-    let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-    let g:ale_python_flake8_options = "--ignore=E203,E221,E251,E501"
-    nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-    nmap <silent> <C-j> <Plug>(ale_next_wrap)
+        " let g:ale_sign_column_always = 1
+        let g:ale_linters = {
+        \    'python': ['flake8'],
+        \}
+        let g:airline#extensions#ale#enabled = 1
+        let g:ale_echo_msg_error_str = 'E'
+        let g:ale_echo_msg_warning_str = 'W'
+        let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+        let g:ale_python_flake8_options = "--ignore=E203,E221,E251,E501"
+        nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+        nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
     " Toggle location list and quickfix list (for ale)
     Plug 'milkypostman/vim-togglelist'
-    let g:toggle_list_no_mappings = 1
-    nmap <script> <silent> <leader>e :call ToggleLocationList()<CR>
-    " nmap <script> <silent> <leader>ee :call ToggleQuickfixList()<CR>
+        let g:toggle_list_no_mappings = 1
+        nmap <script> <silent> <leader>e :call ToggleLocationList()<CR>
+        " nmap <script> <silent> <leader>ee :call ToggleQuickfixList()<CR>
 
     " mako syntax support
     Plug 'sophacles/vim-bundle-mako'
+        autocmd Filetype mako setlocal ts=4 sw=4 sts=0 expandtab
 
     " Highlight HTML tags
     Plug 'gregsexton/MatchTag'
@@ -112,20 +113,20 @@
     " dark powered neo-completion
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-jedi'
-    "let g:loaded_python_provider = 1
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#sources#jedi#show_docstring = 1
-    let g:python_host_prog = '/Users/marklee/.pyenv/versions/neovim2/bin/python'
-    let g:python3_host_prog = '/Users/marklee/.pyenv/versions/neovim3/bin/python'
+        " let g:loaded_python_provider = 1
+        let g:deoplete#enable_at_startup = 1
+        let g:deoplete#sources#jedi#show_docstring = 1
+        let g:python_host_prog = '/Users/marklee/.pyenv/versions/neovim2/bin/python'
+        let g:python3_host_prog = '/Users/marklee/.pyenv/versions/neovim3/bin/python'
 
     " only for go-to-definition
     Plug 'davidhalter/jedi-vim'
-    let g:jedi#auto_vim_configuration = 0
-    let g:jedi#use_tabs_not_buffers = 0
-    let g:jedi#goto_command = '<leader>d'
-    let g:jedi#usages_command = '<leader>g'
-    let g:jedi#completions_enabled = 0
-    let g:jedi#smart_auto_mappings = 0
+        let g:jedi#auto_vim_configuration = 0
+        let g:jedi#use_tabs_not_buffers = 0
+        let g:jedi#goto_command = '<leader>d'
+        let g:jedi#usages_command = '<leader>g'
+        let g:jedi#completions_enabled = 0
+        let g:jedi#smart_auto_mappings = 0
 
     call plug#end()
 
