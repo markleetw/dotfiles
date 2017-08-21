@@ -109,6 +109,24 @@
     " Easymotion
     Plug 'easymotion/vim-easymotion'
 
+    " dark powered neo-completion
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi'
+    "let g:loaded_python_provider = 1
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#sources#jedi#show_docstring = 1
+    let g:python_host_prog = '/Users/marklee/.pyenv/versions/neovim2/bin/python'
+    let g:python3_host_prog = '/Users/marklee/.pyenv/versions/neovim3/bin/python'
+
+    " only for go-to-definition
+    Plug 'davidhalter/jedi-vim'
+    let g:jedi#auto_vim_configuration = 0
+    let g:jedi#use_tabs_not_buffers = 0
+    let g:jedi#goto_command = '<leader>d'
+    let g:jedi#usages_command = '<leader>g'
+    let g:jedi#completions_enabled = 0
+    let g:jedi#smart_auto_mappings = 0
+
     call plug#end()
 
 " Remove trailing spaces when saving files
