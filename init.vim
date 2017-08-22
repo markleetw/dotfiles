@@ -115,6 +115,8 @@
         " let g:loaded_python_provider = 1
         let g:deoplete#enable_at_startup = 1
         let g:deoplete#sources#jedi#show_docstring = 1
+        let g:deoplete#disable_auto_complete = 1
+        inoremap <expr><C-n> deoplete#mappings#manual_complete()
         let g:python_host_prog = '/Users/marklee/.pyenv/versions/neovim2/bin/python'
         let g:python3_host_prog = '/Users/marklee/.pyenv/versions/neovim3/bin/python'
 
