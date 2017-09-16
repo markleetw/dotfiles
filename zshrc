@@ -141,6 +141,7 @@ alias ipyn='ipython notebook'
 # fzf
 alias fzf-tmux='fzf-tmux -d 30%'
 alias gl='fzf-git-browse.sh'  # it's awesome!
+alias gbf='git blame $(fzf-tmux)'
 
 # Vim
 alias vim='nvim'
