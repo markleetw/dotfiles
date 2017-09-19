@@ -55,6 +55,9 @@
     " Theme
     Plug 'altercation/vim-colors-solarized'
 
+    " Git
+    Plug 'tpope/vim-fugitive'
+
     " Status bar
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
