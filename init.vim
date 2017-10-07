@@ -156,6 +156,7 @@ function ToggleCopyMode()
     if b:copy_mode_is_enabled
         echom 'Disable Copy Mode'
         set mouse=a
+        ALEEnable
         IndentLinesEnable
         set number
         set relativenumber
@@ -163,6 +164,7 @@ function ToggleCopyMode()
     else
         echom 'Enable Copy Mode'
         set mouse=
+        ALEDisable
         IndentLinesDisable
         set number!
         set relativenumber!
