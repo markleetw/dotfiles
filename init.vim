@@ -6,6 +6,7 @@
     set hlsearch                       " highlight search results
     set backspace=2                    " enable backspace in insert mode
     set cursorline                     " highlight the cursor line
+    set cursorcolumn                   " highlight the cursor column
     set nobackup                       " won't save backup file anymore
     set noswapfile                     " won't save swap file anymore
 
