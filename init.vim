@@ -112,6 +112,7 @@
     " Display the indention levels
     Plug 'Yggdroot/indentLine'
         let g:indentLine_char = '¦'
+        let g:indentLine_setConceal = 0
 
     " Easymotion
     Plug 'easymotion/vim-easymotion'
