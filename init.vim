@@ -36,7 +36,7 @@
 
     " frequently used commands
     nnoremap <Leader>w :w<CR>
-    nnoremap <Leader>q :q<CR>
+    nnoremap <Leader>q :qa<CR>
     nnoremap <Leader>wq :wq<CR>
 
     " buffer switch
