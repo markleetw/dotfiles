@@ -100,6 +100,7 @@ export FZF_DEFAULT_OPTS="
   --color fg:-1,bg:-1,hl:33,fg+:254,bg+:235,hl+:33
   --color info:136,prompt:136,pointer:230,marker:230,spinner:136
 "
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # fancy zsh
@@ -141,13 +142,29 @@ alias ipyn='ipython notebook'
 # fzf
 alias fzf-tmux='fzf-tmux -d 30%'
 alias gl='fzf-git-browse.sh'  # it's awesome!
-alias gbf='git blame $(fzf-tmux)'
 
 # Vim
 alias vim='nvim'
 alias vi='vim'
-alias vif='vim $(fzf-tmux -m)'
 
 # tmux
 alias tma='tmux a'
 alias tmk='tmux kill-session'
+
+# tree
+alias tree='tree -I "__pycache__|*.pyc"'
+
+
+# Function
+# ========
+vif() {
+    local files
+    IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+    [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+
+gbf() {
+    local file
+    file=($(fzf-tmux --query="$1" --select-1 --exit-0))
+    [[ -n "$file" ]] && git blame "${file}"
+}
