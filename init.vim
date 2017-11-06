@@ -118,6 +118,7 @@
     Plug 'scrooloose/nerdtree'
     map <Leader>r :NERDTreeToggle<CR>
     let NERDTreeIgnore=['\.pyc$']
+    let g:NERDTreeWinSize = 40
 
     " dark powered neo-completion
     " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
