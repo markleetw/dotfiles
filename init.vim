@@ -23,6 +23,7 @@
     set smarttab                       " uses shiftwidth instead of tabstop at start of lines
     set tabpagemax=100                 " change the limit of tabs
     set mouse=a                        " enable mouse mode
+    set completeopt+=noselect,noinsert
     " set clipboard=unnamed              " +y to copy text to clipboard
 
 " Theme settings
@@ -68,23 +69,19 @@
         set noshowmode
 
     Plug 'w0rp/ale'
-        " let g:ale_sign_column_always = 1
         let g:ale_linters = {
         \    'python': ['flake8'],
         \}
+        let g:ale_python_flake8_options = "--ignore=E203,E221,E251,E402,E501"
+        let g:ale_enabled = 0
         let g:airline#extensions#ale#enabled = 1
         let g:ale_echo_msg_error_str = 'E'
         let g:ale_echo_msg_warning_str = 'W'
         let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-        let g:ale_python_flake8_options = "--ignore=E203,E221,E251,E402,E501"
+        let g:ale_open_list = 1
+        nmap <silent> <leader>e :ALEToggle<CR>: echom "ALE Checking"<CR>
         nmap <silent> <C-k> <Plug>(ale_previous_wrap)
         nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
-    " Toggle location list and quickfix list (for ale)
-    Plug 'milkypostman/vim-togglelist'
-        let g:toggle_list_no_mappings = 1
-        nmap <script> <silent> <leader>e :call ToggleLocationList()<CR>
-        " nmap <script> <silent> <leader>ee :call ToggleQuickfixList()<CR>
 
     " mako syntax support
     Plug 'marksylee/vim-bundle-mako'
@@ -112,15 +109,15 @@
     " Display the indention levels
     Plug 'Yggdroot/indentLine'
         let g:indentLine_char = '¦'
-        let g:indentLine_setConceal = 0
+        " let g:indentLine_setConceal = 0
 
     " Easymotion
     Plug 'easymotion/vim-easymotion'
 
     " Nerd
     Plug 'scrooloose/nerdtree'
-    map <Leader>tt :NERDTreeToggle<CR>
-    Plug 'scrooloose/nerdcommenter'
+    map <Leader>r :NERDTreeToggle<CR>
+    let NERDTreeIgnore=['\.pyc$']
 
     " dark powered neo-completion
     " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -163,7 +160,6 @@ function ToggleCopyMode()
     if b:copy_mode_is_enabled
         echom 'Disable Copy Mode'
         set mouse=a
-        ALEEnable
         IndentLinesEnable
         set number
         set relativenumber
