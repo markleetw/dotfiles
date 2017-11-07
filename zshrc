@@ -171,6 +171,8 @@ gbf() {
 
 unalias z 2> /dev/null
 z() {
-  [ $# -gt 0 ] && _z "$*" && return
-  cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
+    [ $# -gt 0 ] && _z "$*" && return
+    local file
+    file=($(_z -l 2>&1 | fzf-tmux --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//'))
+    [[ -n "$file" ]] && cd "$file"
 }
