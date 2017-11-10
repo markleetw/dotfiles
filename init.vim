@@ -23,7 +23,7 @@
     set smarttab                       " uses shiftwidth instead of tabstop at start of lines
     set tabpagemax=100                 " change the limit of tabs
     set mouse=a                        " enable mouse mode
-    set completeopt+=noinsert
+    set completeopt+=noinsert,menuone
     " set clipboard=unnamed              " +y to copy text to clipboard
 
 " Theme settings
