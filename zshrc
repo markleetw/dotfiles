@@ -133,6 +133,7 @@ zplug load  # --verbose
 alias '?'='which'
 alias cls='clear'
 alias l='ll'
+alias grep='grep --color'
 
 # Python
 alias py='py2'
@@ -178,3 +179,17 @@ z() {
     file=($(_z -l 2>&1 | fzf-tmux --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//'))
     [[ -n "$file" ]] && cd "$file"
 }
+
+
+# Enhanced Manual
+# ===============
+export PAGER="`which less` -s"
+export BROWSER="$PAGER"
+export LESS_TERMCAP_mb=$'\E[0;34m'
+export LESS_TERMCAP_md=$'\E[0;34m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+#export LESS_TERMCAP_so=$'\E[38;5;167m'
+export LESS_TERMCAP_so=$'\E[0;34m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[0;33m'
