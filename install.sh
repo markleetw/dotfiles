@@ -8,3 +8,5 @@ ln -s $(pwd)/zshrc $HOME/.zshrc
 
 ln -s $(pwd)/tmux.conf $HOME/.tmux.conf
 ln -s $(pwd)/tmux-powerline $HOME/.tmux-powerline
+
+ln -s $(pwd)/multitailrc $HOME/.multitailrc
