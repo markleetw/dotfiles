@@ -50,7 +50,7 @@ source $ZPLUG_HOME/init.zsh
 if which pyenv > /dev/null; then
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
     eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
+    # eval "$(pyenv virtualenv-init -)"
 fi
 
 
@@ -118,12 +118,12 @@ zplug "joel-porquet/zsh-dircolors-solarized", hook-load:"source $ZPLUG_HOME/repo
 
 # zplug check, install and load
 # =============================
-if ! zplug check; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
+# if ! zplug check; then
+#     printf "Install? [y/N]: "
+#     if read -q; then
+#         echo; zplug install
+#     fi
+# fi
 
 zplug load  # --verbose
 
