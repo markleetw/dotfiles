@@ -69,6 +69,8 @@ export LC_ALL="en_US.UTF-8"
 # Plugins
 # =======
 
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
 # theme
 zplug "agnoster/agnoster-zsh-theme", use:agnoster.zsh-theme, from:github, as:theme
 
