@@ -135,6 +135,9 @@ alias cls='clear'
 alias l='ll'
 alias grep='grep --color'
 
+# Git
+alias gap='git add --patch'
+
 # Python
 alias py='py2'
 alias py2='python2'
