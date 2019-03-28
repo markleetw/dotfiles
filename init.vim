@@ -68,7 +68,7 @@
         let g:airline_powerline_fonts = 1
         set noshowmode
 
-    Plug 'w0rp/ale'
+    Plug 'w0rp/ale', { 'for': 'python', 'on': 'ALEToggle' }
         let g:ale_linters = {
         \    'python': ['flake8'],
         \}
@@ -100,7 +100,7 @@
         \ }
 
     " Display tags in a window
-    Plug 'majutsushi/tagbar'
+    Plug 'majutsushi/tagbar', { 'for': 'python' }
         let g:tagbar_autofocus = 1
         let g:tagbar_silent = 1
         let g:tagbar_sort = 0
@@ -115,14 +115,14 @@
     Plug 'easymotion/vim-easymotion'
 
     " Nerd
-    Plug 'scrooloose/nerdtree'
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
         map <Leader>r :NERDTreeToggle<CR>
         let NERDTreeIgnore=['\.pyc$']
         let g:NERDTreeWinSize = 40
 
     " dark powered neo-completion
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'zchee/deoplete-jedi'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'for': 'python' }
+    Plug 'zchee/deoplete-jedi', { 'for': 'python' }
         let g:deoplete#enable_smart_case = 1
         let g:deoplete#enable_at_startup = 1
         let g:deoplete#sources#jedi#show_docstring = 1
@@ -135,7 +135,7 @@
         let g:python3_host_prog = '/home/marklee/dev/virtualenv/neovim3/bin/python3.6'
 
     " only for go-to-definition
-    Plug 'davidhalter/jedi-vim'
+    Plug 'davidhalter/jedi-vim', { 'for': 'python' }
         let g:jedi#auto_vim_configuration = 0
         let g:jedi#use_tabs_not_buffers = 0
         let g:jedi#goto_command = '<leader>d'
