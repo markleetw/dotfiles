@@ -116,29 +116,32 @@
 
     " Nerd
     Plug 'scrooloose/nerdtree'
-    map <Leader>r :NERDTreeToggle<CR>
-    let NERDTreeIgnore=['\.pyc$']
-    let g:NERDTreeWinSize = 40
+        map <Leader>r :NERDTreeToggle<CR>
+        let NERDTreeIgnore=['\.pyc$']
+        let g:NERDTreeWinSize = 40
 
     " dark powered neo-completion
-    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    " Plug 'zchee/deoplete-jedi'
-    "     " let g:loaded_python_provider = 1
-    "     let g:deoplete#enable_at_startup = 1
-    "     let g:deoplete#sources#jedi#show_docstring = 1
-    "     let g:deoplete#disable_auto_complete = 1
-    "     inoremap <expr><C-n> deoplete#mappings#manual_complete()
-    "     let g:python_host_prog = '/Users/marklee/.pyenv/versions/neovim2/bin/python'
-    "     let g:python3_host_prog = '/Users/marklee/.pyenv/versions/neovim3/bin/python'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi'
+        let g:deoplete#enable_smart_case = 1
+        let g:deoplete#enable_at_startup = 1
+        let g:deoplete#sources#jedi#show_docstring = 1
+        let g:deoplete#auto_complete_delay = 500
+        " let g:deoplete#disable_auto_complete = 1
+        inoremap <expr><C-n> deoplete#mappings#manual_complete()
+        inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+        inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+        let g:python_host_prog = '/home/marklee/dev/virtualenv/neovim2/bin/python2.7'
+        let g:python3_host_prog = '/home/marklee/dev/virtualenv/neovim3/bin/python3.6'
 
     " only for go-to-definition
-    " Plug 'davidhalter/jedi-vim'
-    "     let g:jedi#auto_vim_configuration = 0
-    "     let g:jedi#use_tabs_not_buffers = 0
-    "     let g:jedi#goto_command = '<leader>d'
-    "     let g:jedi#usages_command = '<leader>g'
-    "     let g:jedi#completions_enabled = 0
-    "     let g:jedi#smart_auto_mappings = 0
+    Plug 'davidhalter/jedi-vim'
+        let g:jedi#auto_vim_configuration = 0
+        let g:jedi#use_tabs_not_buffers = 0
+        let g:jedi#goto_command = '<leader>d'
+        let g:jedi#usages_command = '<leader>g'
+        let g:jedi#completions_enabled = 0
+        let g:jedi#smart_auto_mappings = 0
 
     call plug#end()
 
@@ -147,7 +150,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Hand-made snippets
 autocmd FileType python
-\ nnoremap <Leader>ih i#!/usr/bin/env python<CR># -*- coding: utf-8 -*-<CR><CR><CR>|
+\ nnoremap <Leader>ih i#!/usr/bin/env python<CR># -*- coding: utf-8 -*-<CR>from __future__ import division<CR>from __future__ import print_function<CR>from __future__ import unicode_literals<CR><CR>|
 \ nnoremap <Leader>im iif __name__ == '__main__':<CR>
 
 " Copy/Paste Mode for SSH to remote Vim
