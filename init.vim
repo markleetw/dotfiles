@@ -116,7 +116,7 @@
 
     " Nerd
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-        map <Leader>r :NERDTreeToggle<CR>
+        map <Leader>tt :NERDTreeToggle<CR>
         let NERDTreeIgnore=['\.pyc$']
         let g:NERDTreeWinSize = 40
 
