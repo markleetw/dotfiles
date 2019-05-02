@@ -126,8 +126,8 @@
     Plug 'zchee/deoplete-jedi', { 'for': 'python' }
         let g:deoplete#enable_smart_case = 1
         let g:deoplete#enable_at_startup = 1
-        let g:deoplete#sources#jedi#show_docstring = 1
-        let g:deoplete#auto_complete_delay = 500
+        " let g:deoplete#sources#jedi#show_docstring = 1
+        " let g:deoplete#auto_complete_delay = 500
         " let g:deoplete#disable_auto_complete = 1
         inoremap <expr><C-n> deoplete#mappings#manual_complete()
         inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
