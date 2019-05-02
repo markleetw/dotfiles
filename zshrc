@@ -12,7 +12,7 @@
 export DEFAULT_USER="marklee"
 
 # default editor
-export EDITOR="nvim"
+export EDITOR="/usr/local/bin/nvim"
 
 # enable zsh menu selection completion
 zstyle ":completion:*" menu select
@@ -37,7 +37,7 @@ fi
 # ============
 
 # set zplug path here
-export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME=~/.zplug
 
 # init zplug
 source $ZPLUG_HOME/init.zsh
