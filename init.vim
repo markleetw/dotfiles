@@ -55,7 +55,8 @@
     call plug#begin('~/.local/share/nvim/plugged')
 
     " Theme
-    Plug 'altercation/vim-colors-solarized'
+    " Plug 'altercation/vim-colors-solarized'
+    Plug 'morhetz/gruvbox'
 
     " Git
     Plug 'tpope/vim-fugitive'
@@ -180,4 +181,5 @@ function ToggleCopyMode()
 endfunction
 
 " Enable theme
-colorscheme solarized
+" colorscheme solarized
+colorscheme gruvbox

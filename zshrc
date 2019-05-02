@@ -28,8 +28,8 @@ setopt interactivecomments
 
 # MacOS cannot use dircolors, so replace with this solarized-like color settings
 if [ "$(uname)" = "Darwin" ]; then
-    export CLICOLOR="true"
-    export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+    export CLICOLOR=1
+    export LSCOLORS=GxFxCxDxBxegedabagaced
 fi
 
 
@@ -150,6 +150,7 @@ alias fzf-tmux='fzf-tmux -d 30%'
 alias gl='fzf-git-browse.sh'  # it's awesome!
 
 # Vim
+alias nvim='exec_scmb_expand_args $EDITOR'
 alias vim='nvim'
 alias vi='vim'
 
