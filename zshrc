@@ -132,7 +132,7 @@ zplug load  # --verbose
 # =====
 alias '?'='which'
 alias cls='clear'
-alias l='ll'
+alias ls='ll'
 alias grep='grep --color'
 alias cd='exec_scmb_expand_args builtin cd'
 
