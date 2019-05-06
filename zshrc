@@ -171,6 +171,10 @@ vif() {
     [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
+function viag {
+    $EDITOR -p `ag -l "$@"`
+}
+
 gbf() {
     local file
     file=($(fzf-tmux --query="$1" --select-1 --exit-0))
