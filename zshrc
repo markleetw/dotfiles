@@ -172,7 +172,7 @@ vif() {
 }
 
 function viag {
-    $EDITOR -p `ag -l "$@"`
+    $EDITOR `ag -l "$@"`
 }
 
 gbf() {
