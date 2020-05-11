@@ -151,6 +151,11 @@ alias tmk='tmux kill-session'
 # tree
 alias tree='tree -I "__pycache__|*.pyc"'
 
+# git
+alias gdc='git diff --cached'
+alias gap='git add --patch'
+alias gpl='git pull'
+
 
 # Function
 # ========
