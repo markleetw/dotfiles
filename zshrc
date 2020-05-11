@@ -88,11 +88,6 @@ export TERM=xterm-256color
 # fancy git-diff
 zplug "so-fancy/diff-so-fancy", as:command, use:"diff-so-fancy"
 
-# number shortcut
-zplug "ndbroadbent/scm_breeze", hook-build:"$ZPLUG_HOME/repos/ndbroadbent/scm_breeze/install.sh"
-[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
-# add `nvim` to `scmb_wrapped_shell_command` in `~/.git.scmbrc` if need neovim support
-
 # fuzzy Search
 zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf
 zplug "junegunn/fzf", as:command, use:"bin/fzf-tmux", hook-build:"$ZPLUG_HOME/repos/junegunn/fzf/install --all"
@@ -113,7 +108,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2, hook-load:"ZSH_HIGHLIGHT_STY
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions", hook-load:"ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=242"
 zplug "rupa/z", use:z.sh
-zplug "joel-porquet/zsh-dircolors-solarized", hook-load:"source $ZPLUG_HOME/repos/joel-porquet/zsh-dircolors-solarized/zsh-dircolors-solarized.zsh", if:"(( $+commands[dircolors] ))"
+zplug "seebi/dircolors-solarized", ignore:"*", as:plugin
 
 
 # zplug check, install and load
@@ -132,12 +127,7 @@ zplug load  # --verbose
 # =====
 alias '?'='which'
 alias cls='clear'
-alias ls='ll'
 alias grep='grep --color'
-alias cd='exec_scmb_expand_args builtin cd'
-
-# Git
-alias gap='git add --patch'
 
 # Python
 alias py='py2'
@@ -148,12 +138,11 @@ alias ipyn='ipython notebook'
 
 # fzf
 alias fzf-tmux='fzf-tmux -d 30%'
-alias gl='fzf-git-browse.sh'  # it's awesome!
+alias fgl='fzf-git-browse.sh'  # it's awesome!
 
 # Vim
-alias nvim='exec_scmb_expand_args $EDITOR'
 alias vim='nvim'
-alias vi='vim'
+alias vi='nvim'
 
 # tmux
 alias tma='tmux a'
@@ -198,7 +187,8 @@ export LESS_TERMCAP_mb=$'\E[0;34m'
 export LESS_TERMCAP_md=$'\E[0;34m'
 export LESS_TERMCAP_me=$'\E[0m'
 export LESS_TERMCAP_se=$'\E[0m'
-#export LESS_TERMCAP_so=$'\E[38;5;167m'
 export LESS_TERMCAP_so=$'\E[0;34m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[0;33m'
+
+eval "$(scmpuff init -s)"

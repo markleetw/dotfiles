@@ -23,7 +23,7 @@
     set smarttab                       " uses shiftwidth instead of tabstop at start of lines
     set tabpagemax=100                 " change the limit of tabs
     set mouse=a                        " enable mouse mode
-    set completeopt+=noinsert,menuone
+    set completeopt=longest,menuone,preview
     " set clipboard=unnamed              " +y to copy text to clipboard
 
 " Theme settings
@@ -99,6 +99,10 @@
             \ 'dir':  '\v[\/]\.(git|hg|svn)$',
             \ 'file': '\v\.(exe|so|dll|pyc)$',
         \ }
+        let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+
+    " Ag.Vim to search text
+    Plug 'rking/ag.vim'
 
     " Display tags in a window
     Plug 'majutsushi/tagbar', { 'for': 'python' }
@@ -129,7 +133,7 @@
         " let g:deoplete#sources#jedi#show_docstring = 1
         " let g:deoplete#auto_complete_delay = 500
         " let g:deoplete#disable_auto_complete = 1
-        inoremap <expr><C-n> deoplete#mappings#manual_complete()
+        " inoremap <expr><C-n> deoplete#mappings#manual_complete()
         inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
         inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
         let g:python_host_prog = '/home/marklee/dev/virtualenv/neovim2/bin/python2.7'
@@ -140,7 +144,8 @@
         let g:jedi#auto_vim_configuration = 0
         let g:jedi#use_tabs_not_buffers = 0
         let g:jedi#goto_command = '<leader>d'
-        let g:jedi#usages_command = '<leader>g'
+        " let g:jedi#usages_command = '<leader>g'
+        let g:jedi#documentation_command = "<leader>k"
         let g:jedi#completions_enabled = 0
         let g:jedi#smart_auto_mappings = 0
 
